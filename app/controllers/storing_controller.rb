@@ -1,0 +1,2 @@
+class StoringController < ApplicationController
+end
