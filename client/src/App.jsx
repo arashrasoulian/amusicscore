@@ -1,16 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+import { Header } from "./components/Header";
+// import { Footer } from "./component/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import  { useEffect } from "react";
+
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
 
   return (
     <>
-   
-    </>
-  )
-}
+      <BrowserRouter>
+        <div className="container-fluid card-Background">
+          <header>
+            <Header />
+          </header>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
 
-export default App
+          </Routes>
+
+          <div>
+            {/* <Footer /> */}
+          </div>
+        </div>
+      </BrowserRouter>
+    </>
+  );
+}
+export default App;
