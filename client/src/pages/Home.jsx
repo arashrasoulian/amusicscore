@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 
 import { API_URL } from "../consttants";
+import { List } from "../components/List";
 
 export function Home(){
-  const [scores ,setScores] =useState([ ])
+  const [scores ,setScores] =useState([{}])
 
   useEffect(()=>{
     async function loadscores(){
       try {
-        const response = await fetch("http://localhost:3000/api/v1/scores");
-        console.log(API_URL);
+        const response = await fetch(API_URL+"/scores");
         if (response.ok) {
           const json = await response.json();
           setScores(json);
-          console.log(scores);
         }else {
           throw response
         }
@@ -22,21 +21,13 @@ export function Home(){
       }
     }
   loadscores();
+
 },[])
   return (
    <div>
     <div className="homepage-slider">
     </div>
-    <div className="foryou-homepage-container">
-      {scores.map((score)=>(
-
-        <div key={score.id}>
-          <h2>{score.name}</h2>
-          <p>{score.arranger}</p>
-        </div>
-
-      ))}
-    </div>
+    <List scores={scores}/>
    </div>
   )
 }
