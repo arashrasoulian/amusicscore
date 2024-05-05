@@ -9,15 +9,15 @@ export function List({ scores }) {
     console.log(scores);
   }, []);
 
-  const numCardsPerPage = 5;
+  const numCardsPerList = 5;
 
   const handlePrevClick = () => {
-    setStartIndex(Math.max(0, startIndex - numCardsPerPage));
+    setStartIndex(Math.max(0, startIndex - numCardsPerList));
   };
 
   const handleNextClick = () => {
     setStartIndex(
-      Math.min(scores.length - numCardsPerPage, startIndex + numCardsPerPage)
+      Math.min(scores.length - numCardsPerList, startIndex + numCardsPerList)
     );
   };
 
@@ -27,14 +27,14 @@ export function List({ scores }) {
         Previous
       </button>
 
-      {scores.slice(startIndex, startIndex + numCardsPerPage).map((score) => (
+      {scores.slice(startIndex, startIndex + numCardsPerList).map((score) => (
         <div key={score.id} className="col-2">
           <Homepagelistcard score={score} />
         </div>
       ))}
       <button
         onClick={handleNextClick}
-        disabled={startIndex >= scores.length - numCardsPerPage}
+        disabled={startIndex >= scores.length - numCardsPerList}
         className="col-1"
       >
         Next
