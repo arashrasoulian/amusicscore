@@ -38,7 +38,7 @@ end
 
 # Create 10 fake users
 puts 'Creating users...'
-10.times do
+5.times do
   create_fake_user
 end
 
@@ -46,10 +46,12 @@ end
 puts 'Creating scores...'
 scores_created = 0
 
+# pdf_url = "https://amusicscore.s3.amazonaws.com/all_of_me.pdf"
+
 10.times do
   score = Score.create(
     name: Faker::Lorem.word,
-    scorepdf: Faker::Lorem.word,
+    scorepdf: pdf_url,
     user: User.all.sample,
     scoretype: Faker::Lorem.word,
     copmoser: Faker::Lorem.word,

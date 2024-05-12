@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import  { useEffect } from "react";
+import { Profile } from './pages/Profile';
 
 function App() {
   useEffect(() => {
@@ -19,7 +20,8 @@ function App() {
             <Header />
           </header>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
 
           </Routes>
 
