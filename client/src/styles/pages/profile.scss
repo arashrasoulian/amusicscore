@@ -1,0 +1,31 @@
+@import "../features/color.scss";
+
+.cover-picture-profile {
+  height: 35vh;
+  background-color: $light-blue;
+  position: relative;
+}
+
+.user-avatar-profile {
+  bottom: -40px;
+  left: 2vw;
+  position: absolute;
+
+
+
+}
+
+.user-avatar-profile img {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  border: none;
+  background-color: $light-blue;
+}
+
+.sets-container {
+  height: 8vh;
+  border-bottom: 2px solid black;
+  display: flex;
+  padding-left: 200px;
+}
